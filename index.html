@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<h1>{{ site.title }}</h1>
+
+<p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}">{{ site.author.company }}</a>, an AI-driven recruitment software.</p>
+
+<p>I work on building and optimizing backend systems, with a focus on search infrastructure and AI integration. I've implemented RAG-based solutions using Pinecone and Ollama, and built efficient search systems with Typesense.</p>
+
+<div class="social-links">
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
+    </a>
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white" alt="Twitter">
+    </a>
+    <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" rel="noopener">
+        <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white" alt="Instagram">
+    </a>
+</div>
+
+<p>I enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank">Photography Page</a>. Outside of tech, I love traveling and diving into books!</p>
+
+<p>I'd love to hear from you. I'm <a href="mailto:{{ site.email }}">{{ site.email }}</a> on email or <a href="https://github.com/{{ site.github_username }}">{{ site.github_username }}</a> on GitHub.</p>
+
+<div class="hr"></div>
+
+<p>Read my blog posts or subscribe to my <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>:</p>
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>, {{ post.date | date: "%b %Y" }}
+    </li>
+    {% endfor %}
+</ul> 

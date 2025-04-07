@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="alternate" type="application/atom+xml" href="{{ '/feed.xml' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/favicon167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon180.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="{{ site.url }}/share.png">
+    <meta name="og:type" content="article">
+    <meta name="og:url" content="{{ site.url }}">
+    <meta name="og:title" content="{{ site.title }}">
+    <meta name="og:description" content="{{ site.description }}">
+    <meta name="og:image" content="{{ site.url }}/share.png">
+    <style type="text/css">
+        html {
+            background: #222222;
+            color: #ffffff;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 18px;
+            line-height: 30px;
+        }
+
+        @media only screen and (min-width: 481px) {
+            html {
+                font-size: 21px;
+                line-height: 32px;
+            }
+        }
+
+        body {
+            margin: 37px 5%;
+        }
+
+        @media only screen and (min-width: 481px) {
+            body {
+                margin: 75px auto;
+                width: 550px;
+            }
+        }
+
+        h1 {
+            margin: 0 0 37px 0;
+        }
+
+        a {
+            color: #ebffb4;
+            text-decoration: underline;
+        }
+
+        a:hover,
+        a:focus,
+        a:active {
+            color: #222222;
+            background: #ebffb4;
+            text-decoration: none;
+        }
+
+        p,
+        ul,
+        .hr {
+            margin: 0;
+            margin-bottom: 37px;
+        }
+
+        ul {
+            padding: 0;
+        }
+
+        ul > li {
+            margin-left: 23px;
+        }
+
+        .hr {
+            background: transparent;
+            border-bottom: 1px solid #444444;
+            border-top: 1px solid #111111;
+        }
+
+        .social-links {
+            margin-bottom: 37px;
+        }
+
+        .social-links img {
+            height: 20px;
+            background: transparent;
+            vertical-align: middle;
+        }
+
+        .social-links a:hover {
+            background: transparent;
+        }
+    </style>
+</head>
+<body>
+    {{ content }}
+</body>
+</html> 
