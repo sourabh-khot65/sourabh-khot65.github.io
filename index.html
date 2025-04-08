@@ -26,7 +26,6 @@ layout: default
 
 <div class="hr"></div>
 
-<p>Read my blog posts or subscribe to my <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>:</p>
 
 {% assign tags = site.posts | map: "tags" | uniq | compact | sort %}
 {% if tags.size > 0 %}
