@@ -3,7 +3,7 @@ layout: post
 title: "Welcome to My Blog"
 date: 2024-04-07 12:00:00 -0500
 description: "An introduction to my new blog and what you can expect to find here."
-tags: [introduction, blog]
+tags: []
 ---
 
 Welcome to my new blog! This is where I'll be sharing my thoughts, experiences, and insights about technology, software development, and other interesting topics.
