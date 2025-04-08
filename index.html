@@ -3,34 +3,83 @@ layout: default
 ---
 <h1>{{ site.title }}</h1>
 
-<p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}">{{ site.author.company }}</a>, an AI-driven recruitment software.</p>
-
-<p>I work on building and optimizing backend systems, with a focus on search infrastructure and AI integration. I've implemented RAG-based solutions using Pinecone and Ollama, and built efficient search systems with Typesense.</p>
+<p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}">{{ site.author.company }}</a>.</p>
 
 <div class="social-links">
-    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn">
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
     </a>
-    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white" alt="Twitter">
+    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" title="X (Twitter)">
+        <i class="fab fa-x-twitter"></i>
     </a>
-    <a href="https://instagram.com/{{ site.instagram_username }}" target="_blank" rel="noopener">
-        <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white" alt="Instagram">
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" title="GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">
+        <i class="fas fa-rss"></i>
     </a>
 </div>
 
-<p>I enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank">Photography Page</a>. Outside of tech, I love traveling and diving into books!</p>
+<p>Outside of tech, I love traveling, watching movies, and diving into books! I also enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank">Photography Page</a>.</p>
 
-<p>I'd love to hear from you. I'm <a href="mailto:{{ site.email }}">{{ site.email }}</a> on email or <a href="https://github.com/{{ site.github_username }}">{{ site.github_username }}</a> on GitHub.</p>
+<p>I'd love to hear from you. I'm <a href="mailto:{{ site.email }}">{{ site.email }}</a> on email.</p>
 
 <div class="hr"></div>
 
 <p>Read my blog posts or subscribe to my <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>:</p>
 
+{% assign tags = site.posts | map: "tags" | uniq | compact | sort %}
+{% if tags.size > 0 %}
+<div class="tag-filter">
+    <a href="#" class="tag active" data-tag="all">all</a>
+    {% for tag in tags %}
+    <a href="#" class="tag" data-tag="{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+</div>
+{% endif %}
+
 <ul>
     {% for post in site.posts %}
-    <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>, {{ post.date | date: "%b %Y" }}
+    {% unless post.title contains "Welcome to Jekyll!" or post.title contains "Implementing RAG with Typesense and Pinecone" %}
+    <li class="post-item" {% if post.tags %}data-tags="{{ post.tags | join: ',' }}"{% endif %}>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+        {% if post.tags %}
+        <div class="tags">
+            {% for tag in post.tags %}
+            <a href="#" class="tag" data-tag="{{ tag }}">#{{ tag }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
     </li>
+    {% endunless %}
     {% endfor %}
-</ul> 
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tagLinks = document.querySelectorAll('.tag');
+    const posts = document.querySelectorAll('.post-item');
+
+    tagLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedTag = this.getAttribute('data-tag');
+
+            // Update active state of tag links
+            tagLinks.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+
+            // Show/hide posts based on selected tag
+            posts.forEach(post => {
+                if (selectedTag === 'all') {
+                    post.style.display = '';
+                } else {
+                    const postTags = post.getAttribute('data-tags');
+                    post.style.display = postTags && postTags.split(',').includes(selectedTag) ? '' : 'none';
+                }
+            });
+        });
+    });
+});
+</script> 

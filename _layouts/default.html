@@ -11,6 +11,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="/favicon167.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon180.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="{{ site.url }}/share.png">
     <meta name="og:type" content="article">
@@ -20,8 +21,8 @@
     <meta name="og:image" content="{{ site.url }}/share.png">
     <style type="text/css">
         html {
-            background: #222222;
-            color: #ffffff;
+            background: #ffffff;
+            color: #222222;
             font-family: "Georgia", "Times New Roman", serif;
             font-size: 18px;
             line-height: 30px;
@@ -47,18 +48,20 @@
 
         h1 {
             margin: 0 0 37px 0;
+            text-align: center;
+            font-size: 2.5em;
         }
 
         a {
-            color: #ebffb4;
+            color: #2c5282;
             text-decoration: underline;
         }
 
         a:hover,
         a:focus,
         a:active {
-            color: #222222;
-            background: #ebffb4;
+            color: #ffffff;
+            background: #2c5282;
             text-decoration: none;
         }
 
@@ -71,30 +74,88 @@
 
         ul {
             padding: 0;
+            list-style-type: none;
         }
 
         ul > li {
-            margin-left: 23px;
+            margin-left: 0;
+            margin-bottom: 15px;
         }
 
         .hr {
             background: transparent;
-            border-bottom: 1px solid #444444;
-            border-top: 1px solid #111111;
+            border-bottom: 1px solid #e2e8f0;
+            margin: 37px 0;
         }
 
         .social-links {
+            text-align: center;
             margin-bottom: 37px;
         }
 
-        .social-links img {
-            height: 20px;
-            background: transparent;
-            vertical-align: middle;
+        .social-links a {
+            display: inline-block;
+            color: #2c5282;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px;
+            transition: all 0.2s ease;
         }
 
         .social-links a:hover {
-            background: transparent;
+            color: #ffffff;
+            background: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .social-links i {
+            font-size: 24px;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        .tags {
+            margin-top: 5px;
+        }
+
+        .tag {
+            color: #2c5282;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .tag:hover {
+            color: #ffffff;
+            background: #2c5282;
+        }
+
+        .tag-filter {
+            margin-bottom: 30px;
+        }
+
+        .tag-filter .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            margin: 0 5px 5px 0;
+            border: 1px solid #2c5282;
+            border-radius: 3px;
+        }
+
+        .tag-filter .active {
+            color: #ffffff;
+            background: #2c5282;
+        }
+
+        .post-item {
+            margin-bottom: 25px;
+        }
+
+        .post-date {
+            color: #666666;
+            font-size: 0.9em;
         }
     </style>
 </head>
