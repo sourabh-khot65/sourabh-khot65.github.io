@@ -4,25 +4,9 @@ title: Work
 permalink: /work/
 ---
 
-# About Me
+# My Work
 
-Hi, I'm {{ site.author.name }}! I'm a Software Engineer at {{ site.author.company }} based in {{ site.author.location }}.
+## Software Engineer at Tacitbase
 
-## Current Work
+At Tacitbase, I’m responsible for building and maintaining the systems that drive our application. My work is focused on developing reliable backend services and enhancing core features to support efficient and seamless operations. In this role, I address practical challenges with a hands-on approach and clear, sustainable improvements.
 
-At Tacitbase, I work on:
-- Building and maintaining REST APIs using Go
-- Optimizing search infrastructure with Typesense
-- Implementing AI/ML features using RAG with Pinecone & Ollama
-- Improving system observability with OpenTelemetry
-
-## Technical Skills
-
-🔧 **Backend & APIs**
-- Go, REST APIs, Microservices
-
-🔍 **Search & Databases**
-- PostgreSQL, Typesense
-
-🤖 **AI/ML**
-- RAG, Pinecone, Ollama

@@ -49,6 +49,8 @@ author:
 navigation:
   - title: Blog
     url: /
+  - title: Work
+    url: /work/
   - title: RSS
     url: /feed.xml
 
