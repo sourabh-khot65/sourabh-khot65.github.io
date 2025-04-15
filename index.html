@@ -1,84 +1,56 @@
 ---
 layout: default
+title: Home
 ---
-<h1>{{ site.title }}</h1>
 
-<p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}">{{ site.author.company }}</a>. You can find my work <a href="/work">here</a>.</p>
+<div class="intro">
+    <h1>{{ site.title }}</h1>
+    <p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}" target="_blank" rel="noopener noreferrer">{{ site.author.company }}</a>.</p>
+</div>
 
 <div class="social-links">
-    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" title="LinkedIn">
-        <i class="fab fa-linkedin"></i>
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
     </a>
-    <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" rel="noopener" title="X (Twitter)">
-        <i class="fab fa-x-twitter"></i>
+    <a href="https://x.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" aria-label="Follow me on X (Twitter)">
+        <i class="fab fa-x-twitter" aria-hidden="true"></i>
     </a>
-    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener" title="GitHub">
-        <i class="fab fa-github"></i>
+    <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" aria-label="Check out my GitHub projects">
+        <i class="fab fa-github" aria-hidden="true"></i>
     </a>
-    <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">
-        <i class="fas fa-rss"></i>
+    <a href="{{ '/feed.xml' | relative_url }}" aria-label="Subscribe to my RSS feed">
+        <i class="fas fa-rss" aria-hidden="true"></i>
     </a>
 </div>
 
-<p>Outside of tech, I love traveling and watching movies! I also enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank">Photography Page</a>.</p>
-
-<p>I'd love to hear from you. I'm <a href="mailto:{{ site.email }}">{{ site.email }}</a> on email.</p>
+<div class="personal-note">
+    <p>Outside of tech, I love traveling and watching movies! I also enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank" rel="noopener noreferrer">Photography Page</a>.</p>
+    <p>I'd love to hear from you at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+</div>
 
 <div class="hr"></div>
 
-
-{% assign tags = site.posts | map: "tags" | uniq | compact | sort %}
-{% if tags.size > 0 %}
-<div class="tag-filter">
-    <a href="#" class="tag active" data-tag="all">all</a>
-    {% for tag in tags %}
-    <a href="#" class="tag" data-tag="{{ tag }}">{{ tag }}</a>
-    {% endfor %}
-</div>
-{% endif %}
-
-<ul>
+<div class="posts">
+    <h2>Blog Posts</h2>
+    
     {% for post in site.posts %}
-    {% unless post.title contains "Welcome to Jekyll!" or post.title contains "Implementing RAG with Typesense and Pinecone" %}
-    <li class="post-item" {% if post.tags %}data-tags="{{ post.tags | join: ',' }}"{% endif %}>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-        {% if post.tags %}
+    <article class="post-item">
+        <h3 class="post-title">
+            <a href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">{{ post.title }}</a>
+        </h3>
+        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %-d, %Y" }}
+        </time>
+        {% if post.description %}
+        <p class="post-description">{{ post.description }}</p>
+        {% endif %}
+        {% if post.tags.size > 0 %}
         <div class="tags">
             {% for tag in post.tags %}
-            <a href="#" class="tag" data-tag="{{ tag }}">#{{ tag }}</a>
+            <span class="tag">{{ tag }}</span>
             {% endfor %}
         </div>
         {% endif %}
-    </li>
-    {% endunless %}
+    </article>
     {% endfor %}
-</ul>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const tagLinks = document.querySelectorAll('.tag');
-    const posts = document.querySelectorAll('.post-item');
-
-    tagLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const selectedTag = this.getAttribute('data-tag');
-
-            // Update active state of tag links
-            tagLinks.forEach(t => t.classList.remove('active'));
-            this.classList.add('active');
-
-            // Show/hide posts based on selected tag
-            posts.forEach(post => {
-                if (selectedTag === 'all') {
-                    post.style.display = '';
-                } else {
-                    const postTags = post.getAttribute('data-tags');
-                    post.style.display = postTags && postTags.split(',').includes(selectedTag) ? '' : 'none';
-                }
-            });
-        });
-    });
-});
-</script> 
+</div> 

@@ -23,7 +23,7 @@ email: sourabhkhot65@gmail.com
 description: >-
   Sourabh Khot | Software Engineer | Writes about software engineering, technology, and life.
 baseurl: ""
-url: ""
+url: "https://sourabh-khot65.github.io"
 github_username: sourabh-khot65
 twitter_username: sourabhk65
 linkedin_username: sourabhkhot65
@@ -38,6 +38,21 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sourabh Khot"
+      
 # Theme settings
 author:
   name: Sourabh Khot
