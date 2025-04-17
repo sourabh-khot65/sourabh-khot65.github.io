@@ -3,54 +3,124 @@ layout: default
 title: Home
 ---
 
-<div class="intro">
+<header class="site-header">
     <h1>{{ site.title }}</h1>
-    <p>Hey there, I'm {{ site.author.name }} and I'm a {{ site.author.role }} at <a href="{{ site.company_url }}" target="_blank" rel="noopener noreferrer">{{ site.author.company }}</a>.</p>
+</header>
+
+<div class="intro">
+    <p>Hey there, I'm Sourabh Khot and I'm a Software Engineer at <a href="{{ site.company_url }}" target="_blank" rel="noopener noreferrer">Tacitbase</a>.</p>
+    
+    <p>Outside of tech, I love traveling and watching movies! I also enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank" rel="noopener noreferrer">Photography Page</a>.</p>
+    
+    <p>I'd love to hear from you at <a href="mailto:sourabhkhot65@gmail.com">sourabhkhot65@gmail.com</a>.</p>
 </div>
 
 <div class="social-links">
     <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener noreferrer" aria-label="Connect with me on LinkedIn">
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
+        <i class="fab fa-linkedin"></i>
     </a>
     <a href="https://x.com/{{ site.twitter_username }}" target="_blank" rel="noopener noreferrer" aria-label="Follow me on X (Twitter)">
-        <i class="fab fa-x-twitter" aria-hidden="true"></i>
+        <i class="fab fa-x-twitter"></i>
     </a>
     <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener noreferrer" aria-label="Check out my GitHub projects">
-        <i class="fab fa-github" aria-hidden="true"></i>
+        <i class="fab fa-github"></i>
     </a>
     <a href="{{ '/feed.xml' | relative_url }}" aria-label="Subscribe to my RSS feed">
-        <i class="fas fa-rss" aria-hidden="true"></i>
+        <i class="fas fa-rss"></i>
     </a>
-</div>
-
-<div class="personal-note">
-    <p>Outside of tech, I love traveling and watching movies! I also enjoy capturing the world through my lens — check out my <a href="https://instagram.com/{{ site.photography_instagram }}" target="_blank" rel="noopener noreferrer">Photography Page</a>.</p>
-    <p>I'd love to hear from you at <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
 </div>
 
 <div class="hr"></div>
 
-<div class="posts">
-    <h2>Blog Posts</h2>
+<main>
+    <h2>Writing</h2>
     
-    {% for post in site.posts %}
-    <article class="post-item">
-        <h3 class="post-title">
-            <a href="{{ post.url | relative_url }}" aria-label="Read {{ post.title }}">{{ post.title }}</a>
-        </h3>
-        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: "%B %-d, %Y" }}
-        </time>
-        {% if post.description %}
-        <p class="post-description">{{ post.description }}</p>
-        {% endif %}
-        {% if post.tags.size > 0 %}
-        <div class="tags">
-            {% for tag in post.tags %}
-            <span class="tag">{{ tag }}</span>
+    <ul class="post-list">
+    {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+    {% for year in posts_by_year %}
+        <li class="year-section">
+            <h3>{{ year.name }}</h3>
+            {% for post in year.items %}
+            <article class="post-item">
+                <h4 class="post-title">
+                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h4>
+                <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%B %-d" }}
+                </time>
+                {% if post.tags.size > 0 %}
+                <div class="tags">
+                    {% for tag in post.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </article>
             {% endfor %}
-        </div>
-        {% endif %}
-    </article>
+        </li>
     {% endfor %}
-</div> 
+    </ul>
+</main>
+
+<style>
+.site-header {
+    margin-bottom: 2rem;
+}
+
+.site-header h1 {
+    margin-bottom: 0;
+}
+
+.intro {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.intro p {
+    margin-bottom: 1rem;
+}
+
+.intro p:last-child {
+    margin-bottom: 0;
+}
+
+.year-section {
+    margin-bottom: 2rem;
+}
+
+.year-section h3 {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.post-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.post-date {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.tags {
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .intro {
+        font-size: 1rem;
+    }
+}
+</style> 
