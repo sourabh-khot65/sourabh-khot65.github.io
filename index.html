@@ -8,7 +8,7 @@ title: Home
     <h1>a Software Engineer who loves solving problems.</h1>
 
     <div class="hero-description">
-        <p>With over a year of experience, I work on building solutions that solve real problems. Currently, I’m part of the team at <a href="https://tacitbase.com" target="_blank" rel="noopener noreferrer">Tacitbase</a>.</p>
+        <p>With over a year of experience, I work on building solutions that solve real problems. Currently, I'm part of the team at <a href="https://tacitbase.com" target="_blank" rel="noopener noreferrer">Tacitbase</a>.</p>
     </div>
 
     <blockquote class="quote">
@@ -46,33 +46,31 @@ title: Home
 <div class="hr"></div>
 
 <main>
-    <h2>Writing</h2>
+    <h2>Recent ...</h2>
     
-    <ul class="post-list">
-    {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-    {% for year in posts_by_year %}
-        <li class="year-section">
-            <h3>{{ year.name }}</h3>
-            {% for post in year.items %}
+    <div class="post-list">
+        {% for post in site.posts limit:4 %}
             <article class="post-item">
-                <h4 class="post-title">
+                <h3 class="post-title">
                     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                </h4>
-                <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-                    {{ post.date | date: "%B %-d" }}
-                </time>
-                {% if post.tags.size > 0 %}
-                <div class="tags">
-                    {% for tag in post.tags %}
-                    <span class="tag">{{ tag }}</span>
-                    {% endfor %}
-                </div>
+                </h3>
+                {% if post.description %}
+                    <p class="post-description">{{ post.description }}</p>
                 {% endif %}
+                <div class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+                    {% if post.tags.size > 0 %}
+                        {% for tag in post.tags %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </article>
-            {% endfor %}
-        </li>
-    {% endfor %}
-    </ul>
+        {% endfor %}
+        <div class="view-all">
+            <a href="/writing" class="view-all-link">View all posts →</a>
+        </div>
+    </div>
 </main>
 
 <style>
@@ -259,6 +257,110 @@ title: Home
 
     .quote p {
         font-size: 1.125rem;
+    }
+}
+
+main {
+    margin-top: 3rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 2rem;
+}
+
+.post-list {
+    margin-bottom: 3rem;
+}
+
+.post-item {
+    margin-bottom: 2.5rem;
+}
+
+.post-item:last-child {
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+}
+
+.post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.post-title a:hover {
+    color: var(--link-color);
+}
+
+.post-description {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0.75rem 0;
+}
+
+.post-meta {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+.post-meta time {
+    margin-right: 0.75rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+}
+
+.view-all {
+    text-align: right;
+}
+
+.view-all-link {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: opacity 0.2s ease;
+}
+
+.view-all-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+    main {
+        margin-top: 2rem;
+    }
+
+    main h2 {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-item {
+        margin-bottom: 2rem;
+    }
+
+    .post-title {
+        font-size: 1.125rem;
+    }
+
+    .post-description {
+        font-size: 0.875rem;
     }
 }
 </style> 
