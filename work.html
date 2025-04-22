@@ -4,15 +4,18 @@ title: Work
 ---
 
 <div class="work-section">
-    <h1>Work Experience</h1>
+    <div class="section-intro">
+        <h1>Work Experience</h1>
+        <p>Software Engineer building scalable systems and efficient solutions.</p>
+    </div>
 
     <div class="job">
         <div class="job-header">
-            <h2>Software Engineer</h2>
-            <div class="job-meta">
+            <div class="job-title">
+                <h2>Software Engineer</h2>
                 <span class="company">Tacitbase</span>
-                <span class="duration">January 2024 – Present</span>
             </div>
+            <time class="duration">January 2024 – Present</time>
         </div>
 
         <ul class="achievements">
@@ -35,37 +38,54 @@ title: Work
     padding: 4rem 0;
 }
 
-.work-section h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-}
-
-.job {
+.section-intro {
     margin-bottom: 3rem;
 }
 
-.job-header {
-    margin-bottom: 1.5rem;
-}
-
-.job-header h2 {
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem;
+.section-intro h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
     font-weight: 600;
+    color: var(--text-primary);
 }
 
-.job-meta {
+.section-intro p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.job {
+    border-left: 2px solid var(--border-color);
+    padding-left: 1.5rem;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.job-title {
+    margin-right: 1rem;
+}
+
+.job-title h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.company {
     color: var(--text-secondary);
     font-size: 1rem;
 }
 
-.job-meta .company {
-    font-weight: 500;
-}
-
-.job-meta .duration {
-    margin-left: 1rem;
+.duration {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
 }
 
 .achievements {
@@ -78,8 +98,9 @@ title: Work
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 1rem;
-    line-height: 1.6;
     color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.9375rem;
 }
 
 .achievements li::before {
@@ -94,16 +115,13 @@ title: Work
         padding: 2rem 0;
     }
 
-    .work-section h1 {
-        font-size: 1.75rem;
+    .section-intro {
+        margin-bottom: 2rem;
     }
 
-    .job-header h2 {
-        font-size: 1.25rem;
-    }
-
-    .job-meta {
-        font-size: 0.875rem;
+    .job-header {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .achievements li {

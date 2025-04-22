@@ -198,6 +198,7 @@
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         .site-logo {
@@ -228,6 +229,41 @@
             color: #2D3748;
         }
 
+        .nav-paths {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-path {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-path:hover {
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-path.active {
+            color: var(--text-primary);
+        }
+
+        .nav-path.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+        }
+
         @media (min-width: 768px) {
             .header-content {
                 padding: 0 2rem;
@@ -237,6 +273,14 @@
         @media (max-width: 640px) {
             .site-logo span {
                 font-size: 1rem;
+            }
+            
+            .nav-paths {
+                gap: 1.5rem;
+            }
+
+            .nav-path {
+                font-size: 0.875rem;
             }
         }
 
@@ -258,6 +302,11 @@
                 <img src="{{ 'assets/images/profile.jpg' | relative_url }}" alt="Logo" class="logo-image">
                 <span>Sourabh Khot</span>
             </a>
+            <nav class="nav-paths">
+                <a href="{{ '/writing' | relative_url }}" class="nav-path {% if page.url contains '/writing' %}active{% endif %}">Writing</a>
+                <a href="{{ '/work' | relative_url }}" class="nav-path {% if page.url contains '/work' %}active{% endif %}">Work</a>
+                <a href="{{ '/projects' | relative_url }}" class="nav-path {% if page.url contains '/projects' %}active{% endif %}">Projects</a>
+            </nav>
         </div>
     </header>
     {{ content }}

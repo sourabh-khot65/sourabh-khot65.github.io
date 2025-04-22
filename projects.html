@@ -1,0 +1,150 @@
+---
+layout: default
+title: Projects
+---
+
+<div class="projects-section">
+    <div class="section-intro">
+        <h1>Projects</h1>
+        <p>A collection of my technical projects and experiments.</p>
+    </div>
+
+    <div class="projects-grid">
+        <article class="project-card">
+            <div class="project-header">
+                <h2>AI-Powered Job Recommendation</h2>
+            </div>
+            <p class="project-description">Developed an AI-based job recommendation system using open-source LLMs (Ollama), RAG, and vector databases to suggest relevant jobs from resumes and reduce manual screening.</p>
+            <div class="project-tech">
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">LLMs</span>
+                <span class="tech-tag">RAG</span>
+                <span class="tech-tag">Vector DB</span>
+                <span class="tech-tag">Ollama</span>
+            </div>
+        </article>
+
+        <article class="project-card">
+            <div class="project-header">
+                <h2>Typesense MCP Server</h2>
+                <div class="project-links">
+                    <a href="https://github.com/sourabh-khot65/typesense-mcp-server" class="project-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="project-description">Developed an MCP server to connect with Typesense collections and retrieve data seamlessly using natural language prompts from their MCP client like Claude desktop or Cursor.</p>
+            <div class="project-tech">
+                <span class="tech-tag">Go</span>
+                <span class="tech-tag">Typesense</span>
+                <span class="tech-tag">MCP</span>
+                <span class="tech-tag">API</span>
+            </div>
+        </article>
+    </div>
+</div>
+
+<style>
+.projects-section {
+    max-width: 42rem;
+    padding: 4rem 0;
+}
+
+.section-intro {
+    margin-bottom: 3rem;
+}
+
+.section-intro h1 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-intro p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.project-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.project-card:hover {
+    border-color: var(--text-secondary);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.project-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.project-description {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 1rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary, #f7fafc);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+}
+
+@media (max-width: 640px) {
+    .projects-section {
+        padding: 2rem 0;
+    }
+
+    .section-intro {
+        margin-bottom: 2rem;
+    }
+
+    .project-card {
+        padding: 1.25rem;
+    }
+}
+</style> 
