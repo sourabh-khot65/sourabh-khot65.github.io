@@ -1,0 +1,113 @@
+---
+layout: default
+title: Work
+---
+
+<div class="work-section">
+    <h1>Work Experience</h1>
+
+    <div class="job">
+        <div class="job-header">
+            <h2>Software Engineer</h2>
+            <div class="job-meta">
+                <span class="company">Tacitbase</span>
+                <span class="duration">January 2024 – Present</span>
+            </div>
+        </div>
+
+        <ul class="achievements">
+            <li>Drove end-to-end feature development across all phases of the SDLC - requirements, architecture, implementation, and testing - resulting in faster release cycles and improved product stability.</li>
+            <li>Implemented backend services using Go, Microservices, and PostgreSQL, following clean code principles and RESTful architecture to improve system responsiveness and maintainability.</li>
+            <li>Integrated Typesense to deliver high-speed and accurate search functionality across large volumes of data using optimized data reindexing strategies.</li>
+            <li>Engineered AI-powered resume ranking using OpenAI API, streamlining hiring workflows by filtering out irrelevant applications.</li>
+            <li>Organized and led weekly user feedback meetings to identify areas for improvement in product features, resulting in a more effective and user-friendly solution.</li>
+            <li>Integrated OpenTelemetry into microservices to enable efficient performance monitoring and debugging.</li>
+            <li>Rapidly designed and implemented an admin portal using React.js, empowering stakeholders with seamless access to key operational insights about the product.</li>
+            <li>Designed and implemented a Slack app-based alerting system with OAuth authentication to handle complex recruitment related actions, improving workflow efficiency.</li>
+            <li>Built a single-click local development setup for 20+ microservices, drastically reducing onboarding time and improving developer productivity.</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+.work-section {
+    max-width: 42rem;
+    padding: 4rem 0;
+}
+
+.work-section h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.job {
+    margin-bottom: 3rem;
+}
+
+.job-header {
+    margin-bottom: 1.5rem;
+}
+
+.job-header h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+}
+
+.job-meta {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.job-meta .company {
+    font-weight: 500;
+}
+
+.job-meta .duration {
+    margin-left: 1rem;
+}
+
+.achievements {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.achievements li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.achievements li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+    .work-section {
+        padding: 2rem 0;
+    }
+
+    .work-section h1 {
+        font-size: 1.75rem;
+    }
+
+    .job-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .job-meta {
+        font-size: 0.875rem;
+    }
+
+    .achievements li {
+        font-size: 0.875rem;
+    }
+}
+</style> 

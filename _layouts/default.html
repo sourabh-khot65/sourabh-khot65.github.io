@@ -36,6 +36,8 @@
             --link-color: #2b6cb0;
             --border-color: #e2e8f0;
             --bg-color: #ffffff;
+            --header-height: 60px;
+            --active-link-color: #000000;
         }
 
         html {
@@ -51,7 +53,7 @@
         body {
             max-width: 42rem;
             margin: 0 auto;
-            padding: 2rem 1.25rem;
+            padding: calc(var(--header-height) + 2rem) 1.25rem 2rem;
         }
 
         @media (min-width: 768px) {
@@ -178,18 +180,86 @@
             font-size: 0.875rem;
         }
 
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: opacity 0.2s ease;
+        }
+
+        .site-logo:hover {
+            text-decoration: none;
+            opacity: 0.85;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .site-logo span {
+            font-size: 1.125rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            color: #2D3748;
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-logo span {
+                font-size: 1rem;
+            }
+        }
+
         @media (max-width: 640px) {
             html {
                 font-size: 15px;
             }
 
             body {
-                padding: 1.5rem 1rem;
+                padding: calc(var(--header-height) + 1.5rem) 1rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
+    <header class="sticky-header">
+        <div class="header-content">
+            <a href="{{ '/' | relative_url }}" class="site-logo">
+                <img src="{{ 'assets/images/profile.jpg' | relative_url }}" alt="Logo" class="logo-image">
+                <span>Sourabh Khot</span>
+            </a>
+        </div>
+    </header>
     {{ content }}
 </body>
 </html> 
