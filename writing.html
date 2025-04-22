@@ -44,7 +44,7 @@ title: Writing
 .writing-section {
     max-width: 42rem;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 4rem 0;
 }
 
 .section-intro {
@@ -54,13 +54,13 @@ title: Writing
 .section-intro h1 {
     font-size: 2rem;
     margin: 0 0 1rem;
-    font-weight: normal;
-    color: #333;
+    font-weight: 600;
+    color: var(--text-primary);
 }
 
 .section-intro p {
     font-size: 1.125rem;
-    color: #666;
+    color: var(--text-secondary);
     margin: 0;
     line-height: 1.6;
 }
@@ -75,8 +75,8 @@ title: Writing
 
 .year-marker {
     font-size: 1.25rem;
-    font-weight: normal;
-    color: #333;
+    font-weight: 600;
+    color: var(--text-primary);
     margin-bottom: 2rem;
 }
 
@@ -90,24 +90,25 @@ title: Writing
 
 .post-title {
     font-size: 1.25rem;
-    font-weight: normal;
+    font-weight: 500;
     margin: 0 0 0.75rem;
     line-height: 1.4;
 }
 
 .post-title a {
-    color: #333;
+    color: var(--text-primary);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .post-title a:hover {
-    color: #0366d6;
+    color: var(--link-color);
 }
 
 .post-description {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-secondary);
     margin: 0.75rem 0;
 }
 
@@ -116,8 +117,9 @@ title: Writing
 }
 
 .continue-reading a {
-    color: #0366d6;
+    color: var(--link-color);
     text-decoration: none;
+    font-size: 0.9375rem;
 }
 
 .continue-reading a:hover {
@@ -125,8 +127,8 @@ title: Writing
 }
 
 .post-meta {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
 }
 
 .post-meta time {
@@ -134,22 +136,21 @@ title: Writing
 }
 
 .tag {
-    color: #666;
-    margin: 0 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
 }
-
 
 @media (max-width: 640px) {
     .writing-section {
-        padding: 1.5rem 1rem;
+        padding: 2rem 0;
     }
 
     .section-intro {
         margin-bottom: 2rem;
-    }
-
-    .section-intro h1 {
-        font-size: 1.75rem;
     }
 
     .year-marker {
@@ -162,7 +163,7 @@ title: Writing
     }
 
     .post-description {
-        font-size: 0.9375rem;
+        font-size: 0.875rem;
     }
 }
 </style> 
