@@ -13,25 +13,24 @@ title: Writing
         {% assign posts_by_year = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
         {% for year in posts_by_year %}
             <section class="year-section">
-                <div class="year-marker">{{ year.name }}</div>
+                <h2 class="year-marker">{{ year.name }}</h2>
                 {% for post in year.items %}
                     <article class="post-item">
-                        <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">
-                            {{ post.date | date: "%B %-d" }}
-                        </time>
-                        <div class="post-content">
-                            <h2 class="post-title">
-                                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                            </h2>
-                            {% if post.description %}
-                                <p class="post-description">{{ post.description }}</p>
-                            {% endif %}
+                        <h3 class="post-title">
+                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                        </h3>
+                        {% if post.description %}
+                            <p class="post-description">{{ post.description }}</p>
+                            <p class="continue-reading">
+                                <a href="{{ post.url | relative_url }}">Continue Reading »</a>
+                            </p>
+                        {% endif %}
+                        <div class="post-meta">
+                            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d" }}</time>
                             {% if post.tags.size > 0 %}
-                                <div class="post-tags">
-                                    {% for tag in post.tags %}
-                                        <span class="tag">{{ tag }}</span>
-                                    {% endfor %}
-                                </div>
+                                {% for tag in post.tags %}
+                                    <span class="tag">{{ tag }}</span>
+                                {% endfor %}
                             {% endif %}
                         </div>
                     </article>
@@ -44,7 +43,8 @@ title: Writing
 <style>
 .writing-section {
     max-width: 42rem;
-    padding: 4rem 0;
+    margin: 0 auto;
+    padding: 2rem 1rem;
 }
 
 .section-intro {
@@ -54,18 +54,18 @@ title: Writing
 .section-intro h1 {
     font-size: 2rem;
     margin: 0 0 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-weight: normal;
+    color: #333;
 }
 
 .section-intro p {
     font-size: 1.125rem;
-    color: var(--text-secondary);
+    color: #666;
     margin: 0;
+    line-height: 1.6;
 }
 
 .year-section {
-    position: relative;
     margin-bottom: 4rem;
 }
 
@@ -74,100 +74,95 @@ title: Writing
 }
 
 .year-marker {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 2rem;
 }
 
 .post-item {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    position: relative;
+    margin-bottom: 2.5rem;
 }
 
 .post-item:last-child {
     margin-bottom: 0;
 }
 
-.post-date {
-    flex-shrink: 0;
-    width: 5rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    padding-top: 0.25rem;
-}
-
-.post-content {
-    flex-grow: 1;
-    min-width: 0;
-}
-
 .post-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: normal;
+    margin: 0 0 0.75rem;
     line-height: 1.4;
 }
 
 .post-title a {
-    color: var(--text-primary);
+    color: #333;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 .post-title a:hover {
-    color: var(--link-color);
+    color: #0366d6;
 }
 
 .post-description {
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.6;
-    color: var(--text-secondary);
-    margin: 0 0 0.75rem;
+    color: #333;
+    margin: 0.75rem 0;
 }
 
-.post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+.continue-reading {
+    margin: 0.75rem 0;
+}
+
+.continue-reading a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.continue-reading a:hover {
+    text-decoration: underline;
+}
+
+.post-meta {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-meta time {
+    margin-right: 0.75rem;
 }
 
 .tag {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    background: var(--bg-secondary, #f7fafc);
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
+    color: #666;
+    margin: 0 0.5rem;
 }
+
 
 @media (max-width: 640px) {
     .writing-section {
-        padding: 2rem 0;
+        padding: 1.5rem 1rem;
     }
 
     .section-intro {
         margin-bottom: 2rem;
     }
 
-    .year-section {
-        margin-bottom: 3rem;
+    .section-intro h1 {
+        font-size: 1.75rem;
     }
 
-    .post-item {
-        flex-direction: column;
-        gap: 0.5rem;
+    .year-marker {
+        font-size: 1.125rem;
         margin-bottom: 1.5rem;
     }
 
-    .post-date {
-        width: auto;
-        padding-top: 0;
+    .post-title {
+        font-size: 1.125rem;
     }
 
-    .post-title {
-        font-size: 1rem;
+    .post-description {
+        font-size: 0.9375rem;
     }
 }
 </style> 
