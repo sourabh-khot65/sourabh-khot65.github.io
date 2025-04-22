@@ -5,12 +5,16 @@ title: Home
 
 <div class="hero-section">
     <h1>I'm Sourabh,</h1>
-    <h1>an Software Engineer</h1>
-    <!-- <h1><h1> -->
+    <h1>a Software Engineer</h1>
 
     <div class="hero-description">
-        <p>With experience in building scalable systems, I focus on developing efficient solutions using Go, Microservices, and AI. Currently building at <a href="https://tacitbase.com" target="_blank" rel="noopener noreferrer">Tacitbase</a>.</p>
+        <p>A problem solver at heart, I enjoy building scalable systems and crafting efficient solutions. Currently building at <a href="https://tacitbase.com" target="_blank" rel="noopener noreferrer">Tacitbase</a>.</p>
     </div>
+
+    <blockquote class="quote">
+        <p><a href="https://www.goodreads.com/quotes/857947-truth-can-only-be-found-in-one-place-the-code" target="_blank" rel="noopener noreferrer">"Truth can only be found in one place: the code."</a></p>
+        <cite>— Robert C. Martin</cite>
+    </blockquote>    
 
     <div class="contact-info">
         <p>Pune, Maharashtra</p>
@@ -218,5 +222,37 @@ title: Home
 .social-links a:hover {
     color: var(--text-primary);
     text-decoration: none;
+}
+
+.quote {
+    margin: 3rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--text-primary);
+}
+
+.quote p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+.quote cite {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-style: normal;
+    font-family: 'Inter', sans-serif;
+}
+
+@media (max-width: 640px) {
+    .quote {
+        margin: 2rem 0;
+    }
+
+    .quote p {
+        font-size: 1.125rem;
+    }
 }
 </style> 
