@@ -17,12 +17,14 @@ title: Writing
                 {% for post in year.items %}
                     <article class="post-item">
                         <h3 class="post-title">
-                            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
                         </h3>
                         {% if post.description %}
-                            <p class="post-description">{{ post.description }}</p>
+                            <p class="post-description">
+                                <a href="{{ post.url | relative_url }}" class="post-link-description">{{ post.description }}</a>
+                            </p>
                             <p class="continue-reading">
-                                <a href="{{ post.url | relative_url }}">Continue Reading »</a>
+                                <a href="{{ post.url | relative_url }}" class="continue-link">Continue Reading »</a>
                             </p>
                         {% endif %}
                         <div class="post-meta">
@@ -82,6 +84,13 @@ title: Writing
 
 .post-item {
     margin-bottom: 2.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.post-item:hover {
+    background-color: var(--bg-secondary);
 }
 
 .post-item:last-child {
@@ -95,20 +104,31 @@ title: Writing
     line-height: 1.4;
 }
 
-.post-title a {
-    color: var(--text-primary);
+.post-link {
+    color: var(--link-color);
     text-decoration: none;
-    transition: color 0.2s ease;
+    position: relative;
+    transition: all 0.2s ease;
 }
 
-.post-title a:hover {
+.post-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.post-link-description {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.post-link-description:hover {
     color: var(--link-color);
 }
 
 .post-description {
     font-size: 0.9375rem;
     line-height: 1.6;
-    color: var(--text-secondary);
     margin: 0.75rem 0;
 }
 
@@ -116,14 +136,16 @@ title: Writing
     margin: 0.75rem 0;
 }
 
-.continue-reading a {
+.continue-link {
     color: var(--link-color);
     text-decoration: none;
     font-size: 0.9375rem;
+    transition: all 0.2s ease;
 }
 
-.continue-reading a:hover {
+.continue-link:hover {
     text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .post-meta {
@@ -156,6 +178,10 @@ title: Writing
     .year-marker {
         font-size: 1.125rem;
         margin-bottom: 1.5rem;
+    }
+
+    .post-item {
+        padding: 0.75rem;
     }
 
     .post-title {

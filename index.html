@@ -52,10 +52,12 @@ title: Home
         {% for post in site.posts limit:4 %}
             <article class="post-item">
                 <h3 class="post-title">
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    <a href="{{ post.url | relative_url }}" class="post-link">{{ post.title }}</a>
                 </h3>
                 {% if post.description %}
-                    <p class="post-description">{{ post.description }}</p>
+                    <p class="post-description">
+                        <a href="{{ post.url | relative_url }}" class="post-link-description">{{ post.description }}</a>
+                    </p>
                 {% endif %}
                 <div class="post-meta">
                     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
@@ -179,17 +181,21 @@ title: Home
 }
 
 .post-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.5rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.post-item:hover {
+    background-color: var(--bg-secondary);
 }
 
 .post-title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: normal;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
 }
 
 .post-date {
@@ -275,28 +281,29 @@ main h2 {
     margin-bottom: 3rem;
 }
 
-.post-item {
-    margin-bottom: 2.5rem;
-}
-
 .post-item:last-child {
     margin-bottom: 2rem;
 }
 
-.post-title {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin: 0 0 0.75rem;
-    line-height: 1.4;
-}
-
-.post-title a {
-    color: var(--text-primary);
+.post-link {
+    color: var(--link-color);
     text-decoration: none;
-    transition: color 0.2s ease;
+    position: relative;
+    transition: all 0.2s ease;
 }
 
-.post-title a:hover {
+.post-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.post-link-description {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.post-link-description:hover {
     color: var(--link-color);
 }
 
@@ -330,15 +337,22 @@ main h2 {
 }
 
 .view-all-link {
+    display: inline-flex;
+    align-items: center;
     color: var(--link-color);
     text-decoration: none;
     font-size: 0.9375rem;
-    transition: opacity 0.2s ease;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    background-color: var(--bg-secondary);
 }
 
 .view-all-link:hover {
-    opacity: 0.8;
-    text-decoration: underline;
+    opacity: 1;
+    background-color: var(--border-color);
+    text-decoration: none;
 }
 
 @media (max-width: 640px) {
@@ -352,14 +366,11 @@ main h2 {
     }
 
     .post-item {
-        margin-bottom: 2rem;
+        padding: 0.75rem;
     }
 
-    .post-title {
-        font-size: 1.125rem;
-    }
-
-    .post-description {
+    .view-all-link {
+        padding: 0.375rem 0.75rem;
         font-size: 0.875rem;
     }
 }
