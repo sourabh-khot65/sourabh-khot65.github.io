@@ -23,12 +23,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:image" content="{{ site.url }}/share.png">
+    <meta name="twitter:image" content="{{ '/assets/images/og_preview.png' | absolute_url }}">
     <meta name="og:type" content="article">
     <meta name="og:url" content="{{ site.url }}">
     <meta name="og:title" content="{{ site.title }}">
     <meta name="og:description" content="{{ site.description }}">
-    <meta name="og:image" content="{{ site.url }}/share.png">
+    <meta name="og:image" content="{{ '/assets/images/og_preview.png' | absolute_url }}">
     <style type="text/css">
         :root {
             --text-primary: #2d3748;
@@ -299,7 +299,7 @@
     <header class="sticky-header">
         <div class="header-content">
             <a href="{{ '/' | relative_url }}" class="site-logo">
-                <img src="{{ 'assets/images/profile.jpg' | relative_url }}" alt="Logo" class="logo-image">
+                <img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Logo" class="logo-image">
                 <span>Sourabh Khot</span>
             </a>
             <nav class="nav-paths">
