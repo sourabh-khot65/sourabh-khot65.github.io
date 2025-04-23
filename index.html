@@ -43,7 +43,13 @@ title: Home
     <a href="/work" class="cta-button">Check out my work!</a>
 </div>
 
-<div class="hr"></div>
+<div class="interests-section">
+    <h2>Outside of tech</h2>
+    <p>
+        Outside of work, I enjoy exploring stories through <a href="https://letterboxd.com/sourabhk65/" target="_blank" rel="noopener noreferrer">movies</a> and expressing creativity through <a href="https://www.instagram.com/life.in.pixels1/" target="_blank" rel="noopener noreferrer">photography</a>. And like any true Spider-Man fan, I believe that <a href="https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility" target="_blank" rel="noopener noreferrer">with great power comes great responsibility</a>.
+    </p>
+        
+</div>
 
 <main>
     <h2>Recent ...</h2>
@@ -373,5 +379,32 @@ main h2 {
         padding: 0.375rem 0.75rem;
         font-size: 0.875rem;
     }
+}
+
+.interests-section {
+    margin-bottom: 2rem;
+}
+
+.interests-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.interests-section p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.interests-section a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.interests-section a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 </style> 
