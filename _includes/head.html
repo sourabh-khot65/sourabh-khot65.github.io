@@ -12,7 +12,7 @@
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og_preview.png' | absolute_url }}{% endif %}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og_preview_img.png' | absolute_url }}{% endif %}">
   <meta property="og:site_name" content="{{ site.title }}">
 
   <!-- Twitter -->
@@ -21,7 +21,7 @@
   <meta name="twitter:creator" content="@{{ site.twitter_username }}">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-  <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og_preview.png' | absolute_url }}{% endif %}">
+  <meta name="twitter:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/images/og_preview_img.png' | absolute_url }}{% endif %}">
 
   <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/favicon/apple-touch-icon.png' | relative_url }}">
