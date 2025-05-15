@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Write Your APIs as if Someone Else is Going to Use Them"
+description: "Principles I personally follow while designing and writing an API"
 date: 2025-04-15
 tags: [software engineering]
 ---
