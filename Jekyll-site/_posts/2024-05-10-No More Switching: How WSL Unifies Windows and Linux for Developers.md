@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "No More Switching: How WSL Unifies Windows and Linux for Developers"
-description: "No More Switching: How WSL Unifies Windows and Linux for Developers"
+description: "An overview of how WSL brings Linux to Windows using lightweight virtualization and deep integration"
 date: 2025-05-10
 tags: [software engineering]
 ---
