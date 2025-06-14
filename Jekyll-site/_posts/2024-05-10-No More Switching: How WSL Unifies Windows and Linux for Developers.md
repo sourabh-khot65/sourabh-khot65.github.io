@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "No More Switching: How WSL Unifies Windows and Linux for Developers"
-description:""
+description: "No More Switching: How WSL Unifies Windows and Linux for Developers"
 date: 2025-05-10
 tags: [software engineering]
 ---
