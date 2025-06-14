@@ -259,19 +259,18 @@
         }
 
         .nav-path.active {
-            color: var(--text-primary);
-            font-weight: 600;
+            color: var(--active-link-color);
         }
 
         .nav-path.active::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0.5rem;
-            right: 0.5rem;
+            bottom: -4px;
+            left: 0;
+            right: 0;
             height: 2px;
-            background-color: var(--text-primary);
-            border-radius: 1px;
+            background: var(--active-link-color);
+            border-radius: 2px;
         }
 
         @media (min-width: 768px) {
@@ -303,6 +302,37 @@
                 padding: calc(var(--header-height) + 1.5rem) 1rem 1.5rem;
             }
         }
+
+        .footer {
+            text-align: center;
+            padding: 2.5rem 0;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.02));
+        }
+
+        .footer p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer .heart {
+            color: #e25555;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -320,5 +350,13 @@
         </div>
     </header>
     {{ content }}
+
+    <footer class="footer">
+        <p>
+            Made with <span class="heart">❤️</span> using <a href="https://jekyllrb.com/">Jekyll</a>
+            <span style="margin: 0 0.5rem; opacity: 0.5;">•</span>
+            Sourabh Khot | All rights reserved
+        </p>
+    </footer>
 </body>
 </html> 
